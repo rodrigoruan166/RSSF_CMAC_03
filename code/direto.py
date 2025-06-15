@@ -18,7 +18,7 @@ PACKET_SIZE = 2000  # bits (Tamanho do pacote)
 INITIAL_ENERGY = 2.0 # Joules (Energia inicial dos nós)
 E_SENSE = 8e-5
 E_SLEEP = 15e-10
-NETWORK_FUNCTIONAL_THRESHOLD = 0.1 # 20% dos nós devem estar vivos para considerar a rede funcional sem problemas (comparação justa)
+NETWORK_FUNCTIONAL_THRESHOLD = 0.2 # 20% dos nós devem estar vivos para considerar a rede funcional sem problemas (comparação justa)
 
 class SensorNode:
     def __init__(self, node_id, x, y, base_station):
