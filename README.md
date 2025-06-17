@@ -47,9 +47,7 @@ As simulações geram gráficos comparativos salvos na pasta `results/`, incluin
 
 ## ▶️ Como Executar
 
-Requisitos:
-- Python 3.11+
-- Bibliotecas: `matplotlib`, `numpy`
+Entre na pasta code e execute o seguinte comando:
 
 ```bash
-pip install matplotlib numpy
+python main.py
