@@ -47,8 +47,9 @@ As simulações geram gráficos comparativos salvos na pasta `results/`, incluin
 
 ## ▶️ Como Executar
 
-Entre na pasta code e execute o seguinte comando:
+A partir da pasta raíz execute o seguinte comando:
 
 ```bash
 pip install -r requirements.txt
-python main.py
+cd code
+python main.py | python3 main.py
