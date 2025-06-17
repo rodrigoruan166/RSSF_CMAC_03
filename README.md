@@ -50,4 +50,5 @@ As simulações geram gráficos comparativos salvos na pasta `results/`, incluin
 Entre na pasta code e execute o seguinte comando:
 
 ```bash
+pip install -r requirements.txt
 python main.py
