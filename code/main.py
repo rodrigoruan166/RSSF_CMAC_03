@@ -1,3 +1,4 @@
+# ***** Para executar o código e salvar as imagens, entre na pasta CODE *****
 from direto import simulate_direct_communication
 from LEACH import simulate_leach
 from ELEACH import simulate_eleach
