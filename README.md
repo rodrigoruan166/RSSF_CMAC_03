@@ -34,7 +34,7 @@ O projeto é composto por diferentes módulos de simulação:
 - `LEACH.py` – Implementação do protocolo LEACH clássico.
 - `ELEACH.py` – Implementação do protocolo E-LEACH, com decisões baseadas na energia residual.
 
-Todos os algoritmos foram desenvolvidos com os **mesmos parâmetros energéticos**, baseados no artigo do EESRA (https://ieeexplore.ieee.org/document/8765561), para garantir comparação justa.
+Todos os algoritmos foram desenvolvidos com **parâmetros energéticos** baseados no artigo do EESRA (https://ieeexplore.ieee.org/document/8765561), para garantir comparação justa.
 
 ## 📊 Resultados
 
