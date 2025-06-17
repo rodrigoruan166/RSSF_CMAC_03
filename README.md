@@ -52,4 +52,4 @@ A partir da pasta raíz execute o seguinte comando:
 ```bash
 pip install -r requirements.txt
 cd code
-python main.py | python3 main.py
+python3 main.py
