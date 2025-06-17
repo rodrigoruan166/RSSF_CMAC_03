@@ -18,7 +18,7 @@ PACKET_SIZE = 2000  # bits (Tamanho do pacote)
 INITIAL_ENERGY = 2.0 # Joules (Energia inicial dos nós)
 E_SENSE = 8e-5
 E_SLEEP = 15e-10
-NETWORK_FUNCTIONAL_THRESHOLD = 0 # 20% dos nós devem estar vivos para considerar a rede funcional sem problemas (comparação justa)
+NETWORK_FUNCTIONAL_THRESHOLD = 0.2
 
 class SensorNode:
     def __init__(self, node_id, x, y, base_station):
@@ -240,45 +240,3 @@ def show_final_results(nodes, base_station):
         print(f"Energia média final dos nós vivos: {avg_energy_alive:.6f} J")
     else:
         print("Nenhum nó sobreviveu.")
-
-# --- Exemplo de Uso --- 
-if __name__ == "__main__":
-    # Parâmetros da Simulação (semelhantes ao EESRA para comparação)
-    ARQUIVO_COORDENADAS = "400.txt"
-    NUM_RODADAS = 300       # Número máximo de rodadas
-
-    nodes, bs, alive_hist, energy_hist, media_vida_nos, first_node_death_round = simulate_direct_communication(
-        file_path= ARQUIVO_COORDENADAS,
-        num_rounds=NUM_RODADAS
-    )
-
-    # Geração de gráficos
-    try:
-        import matplotlib.pyplot as plt
-        
-        rounds_executed = len(alive_hist)
-        round_axis = range(1, rounds_executed + 1)
-
-        plt.figure(figsize=(12, 5))
-
-        plt.subplot(1, 2, 1)
-        plt.plot(round_axis, alive_hist, marker='.')
-        plt.title('Nós Vivos por Rodada')
-        plt.xlabel('Rodada')
-        plt.ylabel('Número de Nós Vivos')
-        plt.grid(True)
-
-        plt.subplot(1, 2, 2)
-        plt.plot(round_axis, energy_hist, marker='.', color='orange')
-        plt.title('Energia Média por Rodada (Nós Vivos)')
-        plt.xlabel('Rodada')
-        plt.ylabel('Energia Média (J)')
-        plt.grid(True)
-
-        plt.tight_layout()
-        plt.savefig("comunicacao_direta_resultados.png")
-        print("\nGráficos salvos em 'comunicacao_direta_resultados.png'")
-        #plt.show() # Descomente para mostrar o gráfico interativamente
-
-    except ImportError:
-        print("\nMatplotlib não encontrado. Instale com 'pip install matplotlib' para gerar gráficos.")

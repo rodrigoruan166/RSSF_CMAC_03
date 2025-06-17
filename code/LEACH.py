@@ -16,7 +16,7 @@ INITIAL_ENERGY = 2.0 # Joules (Energia inicial dos nós)
 P = 0.3             # Probabilidade de um nó se tornar CH (fixa)
 E_SENSE = 8e-5    #Joules por segundo (energia do sensoriamento)
 E_SLEEP = 15e-10  #Joules por intervalor de sleep
-NETWORK_FUNCTIONAL_THRESHOLD = 0 # 20% dos nós devem estar vivos para considerar a rede funcional sem problemas (comparação justa)
+NETWORK_FUNCTIONAL_THRESHOLD = 0.2
 
 # A rede é modelada em forma de um grafo ponderado. A classe SensorNode é considerada o vértice do grafo
 # e a aresta é calculada dinâmicamente baseado na distância entre ERB, CH ou Sensor comum.
@@ -391,42 +391,3 @@ def show_final_results(nodes, base_station):
         print(f"Energia média final dos nós vivos: {avg_energy_alive:.6f} J")
     else:
         print("Nenhum nó sobreviveu.")
-
-# --- Execução Principal --- 
-if __name__ == "__main__":
-    ARQUIVO_COORDENADAS = "400.txt"
-    NUM_RODADAS = 300
-
-    nodes, bs, alive_hist, energy_hist, media_vida_nos, first_node_death_round = simulate_leach(
-        file_path=ARQUIVO_COORDENADAS,
-        num_rounds=NUM_RODADAS
-    )
-
-    try:
-        import matplotlib.pyplot as plt
-        
-        rounds_executed = len(alive_hist)
-        round_axis = range(1, rounds_executed + 1)
-
-        plt.figure(figsize=(12, 5))
-
-        plt.subplot(1, 2, 1)
-        plt.plot(round_axis, alive_hist, marker='.')
-        plt.title('Nós Vivos por Rodada')
-        plt.xlabel('Rodada')
-        plt.ylabel('Número de Nós Vivos')
-        plt.grid(True)
-
-        plt.subplot(1, 2, 2)
-        plt.plot(round_axis, energy_hist, marker='.', color='orange')
-        plt.title('Energia Média por Rodada (Nós Vivos)')
-        plt.xlabel('Rodada')
-        plt.ylabel('Energia Média (J)')
-        plt.grid(True)
-
-        plt.tight_layout()
-        plt.savefig("LEACH.png")
-        print("\nGráficos salvos em 'LEACH.png'")
-
-    except ImportError:
-        print("\nMatplotlib não encontrado. Gráficos não gerados.")
