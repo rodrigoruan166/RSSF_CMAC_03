@@ -87,6 +87,28 @@ def plota_informacoes_com_vida_util(NUM_RODADAS, ARQUIVO_COORDENADAS):
     print(f"\nGráfico salvo como 'comparacao_protocolos_2x2_MEDIA_VIVA_{nome_base}.png'")
     print(f"Vida útil (últimos nós vivos): Direta={vida_direct}, LEACH={vida_leach}, E-LEACH={vida_eleach}")
     plt.show()
+   
+    print("\n====== Resultados Numéricos ======")
+    print(f"Quantidade final de nós vivos:")
+    print(f"  Direta: {alive_direct[-1]}")
+    print(f"  LEACH: {alive_leach[-1]}")
+    print(f"  E-LEACH: {alive_eleach[-1]}")
+
+    print("\nEnergia média na última rodada:")
+    print(f"  Direta: {energy_direct[-1]:.4f} J")
+    print(f"  LEACH: {energy_leach[-1]:.4f} J")
+    print(f"  E-LEACH: {energy_eleach[-1]:.4f} J")
+
+    print("\nMédia de rodadas vividas por sensor:")
+    print(f"  Direta: {media_vida_direct:.2f}")
+    print(f"  LEACH: {media_vida_leach:.2f}")
+    print(f"  E-LEACH: {media_vida_eleach:.2f}")
+
+    print("\nVida útil da rede (rodadas até o último nó morrer ou for inferior ao limiar funcional):")
+    print(f"  Direta: {vida_direct}")
+    print(f"  LEACH: {vida_leach}")
+    print(f"  E-LEACH: {vida_eleach}")
+
 
     return round(max(vida_direct, vida_leach, vida_eleach))
 

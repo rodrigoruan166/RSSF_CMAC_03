@@ -16,7 +16,7 @@ INITIAL_ENERGY = 2.0 # Joules (Energia inicial dos nós)
 P = 0.3             # Probabilidade de um nó se tornar CH (fixa)
 E_SENSE = 8e-5    #Joules por segundo (energia do sensoriamento)
 E_SLEEP = 15e-10  #Joules por intervalor de sleep
-NETWORK_FUNCTIONAL_THRESHOLD = 0.2
+NETWORK_FUNCTIONAL_THRESHOLD = 0.12
 
 # A rede é modelada em forma de um grafo ponderado. A classe SensorNode é considerada o vértice do grafo
 # e a aresta é calculada dinâmicamente baseado na distância entre ERB, CH ou Sensor comum.
